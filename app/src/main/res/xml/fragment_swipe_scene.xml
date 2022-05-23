@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@+id/rest"
+        motion:constraintSetEnd="@+id/pass"
+        motion:duration="300" >
+        <OnSwipe
+            motion:dragDirection="dragLeft"
+            motion:touchAnchorId="@id/topCard"
+            motion:touchAnchorSide="left"
+            motion:onTouchUp="autoComplete"
+            motion:touchRegionId="@id/topCard" />
+
+        <KeyFrameSet>
+            <KeyPosition
+                motion:keyPositionType="parentRelative"
+                motion:drawPath="path"
+                motion:framePosition="50"
+                motion:percentY="0.2"
+                motion:percentX="0.1"
+                motion:motionTarget="@+id/topCard"/>
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/rest">
+        <Constraint
+            android:id="@+id/topCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp" />
+        <Constraint
+            android:id="@+id/bottomCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="50dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="50dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="50dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"
+            android:scaleX="0.9"
+            android:scaleY="0.9" />
+        <Constraint
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/bottom_card" />
+        <Constraint
+            android:id="@+id/pass_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:alpha="0" />
+
+        <Constraint
+            android:id="@+id/like_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:alpha="0" />
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/pass"
+        motion:deriveConstraintsFrom="@id/rest">
+
+        <Constraint
+            android:id="@+id/topCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="80dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintWidth_percent="0.7" />
+
+        <Constraint
+            android:id="@+id/bottomCard">
+            <Transform
+                android:scaleX="0.95"
+                android:scaleY="0.95" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/pass_icon">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                motion:layout_constraintTop_toTopOf="@id/topCard"
+                motion:layout_constraintStart_toStartOf="@id/topCard"
+                motion:layout_constraintBottom_toBottomOf="@+id/topCard"
+                motion:layout_constraintEnd_toEndOf="@+id/topCard" />
+
+            <Transform
+                android:scaleY="1"
+                android:scaleX="1" />
+
+            <PropertySet android:alpha="1" />
+        </Constraint>
+    </ConstraintSet>
+
+    <Transition
+        motion:constraintSetStart="@+id/pass"
+        motion:constraintSetEnd="@+id/offScreenPass"
+        motion:duration="150"
+        motion:autoTransition="animateToEnd" />
+
+    <ConstraintSet
+        android:id="@+id/offScreenPass"
+        motion:deriveConstraintsFrom="@+id/pass">
+
+        <Constraint
+            android:id="@+id/topCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="80dp"
+            motion:layout_constraintEnd_toStartOf="parent" />
+
+        <Constraint android:id="@+id/bottomCard">
+            <Transform
+                android:scaleY="1"
+                android:scaleX="1" />
+        </Constraint>
+
+        <Constraint android:id="@+id/pass_icon">
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+
+    </ConstraintSet>
+
+    <Transition
+        motion:constraintSetStart="@+id/rest"
+        motion:constraintSetEnd="@+id/like"
+        motion:duration="300" >
+
+        <OnSwipe motion:dragDirection="dragRight"
+            motion:touchAnchorId="@id/topCard"
+            motion:touchAnchorSide="right"
+            motion:onTouchUp="autoCompleteToEnd"
+            motion:touchRegionId="@id/topCard" />
+
+        <KeyFrameSet>
+            <KeyPosition
+                motion:keyPositionType="parentRelative"
+                motion:drawPath="path"
+                motion:framePosition="50"
+                motion:percentY="0.2"
+                motion:percentX="0.90"
+                motion:motionTarget="@+id/topCard"/>
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/like"
+        motion:deriveConstraintsFrom="@+id/rest">
+
+        <Constraint
+            android:id="@+id/topCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="80dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintWidth_percent="0.7" />
+
+        <Constraint
+            android:id="@+id/like_icon">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                motion:layout_constraintTop_toTopOf="@id/topCard"
+                motion:layout_constraintStart_toStartOf="@id/topCard"
+                motion:layout_constraintBottom_toBottomOf="@+id/topCard"
+                motion:layout_constraintEnd_toEndOf="@+id/topCard" />
+
+            <Transform
+                android:scaleY="1"
+                android:scaleX="1" />
+
+            <PropertySet android:alpha="1" />
+
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/like_icon">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                motion:layout_constraintTop_toTopOf="@id/topCard"
+                motion:layout_constraintStart_toStartOf="@id/topCard"
+                motion:layout_constraintBottom_toBottomOf="@+id/topCard"
+                motion:layout_constraintEnd_toEndOf="@+id/topCard" />
+
+            <Transform
+                android:scaleY="1"
+                android:scaleX="1" />
+
+            <PropertySet android:alpha="1" />
+        </Constraint>
+
+    </ConstraintSet>
+
+    <Transition
+        motion:constraintSetStart="@+id/like"
+        motion:constraintSetEnd="@+id/offScreenLike"
+        motion:duration="150"
+        motion:autoTransition="animateToEnd" />
+
+    <ConstraintSet
+        android:id="@+id/offScreenLike"
+        motion:deriveConstraintsFrom="@+id/like" >
+
+        <Constraint
+            android:id="@+id/topCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintStart_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="80dp" />
+
+        <Constraint android:id="@+id/bottomCard">
+            <Transform
+                android:scaleX="1"
+                android:scaleY="1" />
+        </Constraint>
+
+        <Constraint android:id="@+id/like_icon">
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionScene>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    >
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+       </KeyFrameSet>
+        <OnSwipe motion:dragDirection="dragRight"
+            motion:touchRegionId="@id/swipe_card" />
+    </Transition>
+
+
+    <Transition
+        motion:constraintSetEnd="@+id/end2"
+        motion:constraintSetStart="@id/start2"
+        motion:duration="1000">
+        <KeyFrameSet>
+        </KeyFrameSet>
+        <OnSwipe motion:dragDirection="dragRight"
+            motion:touchRegionId="@id/swipe_card2" />
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/end3"
+        motion:constraintSetStart="@id/start3"
+        motion:duration="1000">
+        <KeyFrameSet>
+            <KeyPosition
+                motion:keyPositionType="pathRelative"
+                motion:percentY="-0.25"
+                motion:framePosition="50"
+                motion:motionTarget="@id/button"/>
+            <KeyCycle
+                android:translationY="50dp"
+                motion:framePosition="50"
+                motion:motionTarget="@id/button"
+                motion:waveOffset="0"
+                motion:wavePeriod="1"
+                motion:waveShape="sin" />
+        </KeyFrameSet>
+        <OnSwipe motion:dragDirection="dragRight"
+            motion:touchRegionId="@id/swipe_card3" />
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/end4"
+        motion:constraintSetStart="@id/start4"
+        motion:duration="1000">
+        <KeyFrameSet>
+        </KeyFrameSet>
+        <OnSwipe motion:dragDirection="dragRight"
+            motion:touchRegionId="@id/swipe_card4" />
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/end5"
+        motion:constraintSetStart="@id/start5"
+        motion:duration="1000">
+        <KeyFrameSet>
+        </KeyFrameSet>
+        <OnSwipe motion:dragDirection="dragRight"
+            motion:touchRegionId="@id/swipe_card5" />
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/end6"
+        motion:constraintSetStart="@id/start6"
+        motion:duration="1000">
+        <KeyFrameSet>
+        </KeyFrameSet>
+        <OnSwipe motion:dragDirection="dragRight"
+            motion:touchRegionId="@id/swipe_card6" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/swipe_card"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/start2">
+        <Constraint
+            android:id="@+id/swipe_card2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/start3">
+        <Constraint
+            android:id="@+id/swipe_card3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/start4">
+        <Constraint
+            android:id="@+id/swipe_card4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/start5">
+        <Constraint
+            android:id="@+id/swipe_card5"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/start6">
+        <Constraint
+            android:id="@+id/swipe_card6"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/swipe_card"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end2">
+        <Constraint
+            android:id="@+id/swipe_card2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end3">
+        <Constraint
+            android:id="@+id/swipe_card3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end4">
+        <Constraint
+            android:id="@+id/swipe_card4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end5">
+        <Constraint
+            android:id="@+id/swipe_card5"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end6">
+        <Constraint
+            android:id="@+id/swipe_card6"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+</MotionScene>
